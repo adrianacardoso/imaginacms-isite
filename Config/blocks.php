@@ -1407,6 +1407,10 @@ return [
       [
         "label" => "Slider::Slider",
         "value" => "Modules\Slider\Repositories\SlideRepository"
+      ],
+      [
+        "label" => "Icommerce::Manufacturer",
+        "value" => "Modules\Icommerce\Repositories\ManufacturerRepository"
       ]
     ],
     "childBlocks" => [
@@ -2827,6 +2831,10 @@ return [
         "label" => "Paginas",
         "value" => "Modules\Page\Repositories\PageRepository"
       ],
+      [
+        "label" => "Icommerce::Manufacturer",
+        "value" => "Modules\Icommerce\Repositories\ManufacturerRepository"
+      ]
     ],
     "childBlocks" => [
       "itemComponentAttributes" => "isite::item-list",
