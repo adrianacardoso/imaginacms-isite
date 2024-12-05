@@ -48,7 +48,7 @@ class LoadMoreButton extends Component
   */
   public function mount($entityName, $itemComponentNamespace, $itemComponentName, $itemComponentAttributes,
                         $layoutClass, $itemListLayout, $repository, $params, $pagination, $itemMainClass, $itemModal,
-                        $editLink, $tooltipEditLink, $parentItemListUniqueClass,$currentRoute)
+                        $editLink, $tooltipEditLink, $parentItemListUniqueClass,$currentRoute=null)
   {
     $this->entityName = $entityName;
     $this->itemComponentNamespace = $itemComponentNamespace;
