@@ -47,7 +47,7 @@ class LoadMoreButton extends Component
   * Runs once, immediately after the component is instantiated,
   * but before render() is called
   */
-  public function mount($entityName,$itemComponentNamespace,$itemComponentName,$itemComponentAttributes,$layoutClass,$itemListLayout,$repository,$params,$pagination,$itemMainClass,$itemModal,$editLink,$tooltipEditLink,$parentItemListUniqueClass,$currentRoute)
+  public function mount($entityName,$itemComponentNamespace,$itemComponentName,$itemComponentAttributes,$layoutClass,$itemListLayout,$repository,$params,$pagination,$itemMainClass,$itemModal,$editLink,$tooltipEditLink,$parentItemListUniqueClass,$currentRoute=null)
   {
 
     $this->entityName = $entityName;
