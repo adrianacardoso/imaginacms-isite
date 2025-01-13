@@ -482,7 +482,7 @@ class TenantService
             ['commandname' => 'key:generate', '--tenants' => [tenant()->id]],
             ['commandname' => 'passport:install', '--tenants' => [tenant()->id]],
         ];
-        exec('export APP_RUNNING_IN_CONSOLE=true');
+        //exec('export APP_RUNNING_IN_CONSOLE=true');
         foreach ($postCommands as $options) {
             //\Log::info($options);
             \Artisan::call('tenants:run', $options);
