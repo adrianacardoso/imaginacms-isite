@@ -412,7 +412,7 @@ class TenantService
 
   }
 
-    public function activateModulesPermissionsInRole($modules, Role $role)
+    public function activateModulesPermissionsInRole($modules, Role $role, $isUpdating = false)
     {
         (! is_array($modules)) ? $modules = [$modules] : false;
 
