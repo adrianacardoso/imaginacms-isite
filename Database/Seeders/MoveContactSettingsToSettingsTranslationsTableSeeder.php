@@ -13,32 +13,20 @@ class MoveContactSettingsToSettingsTranslationsTableSeeder extends Seeder
   {
     $seedUniquesUse = DB::table('isite__seeds')->where('name', 'MoveContactSettingsToSettingsTranslationsTableSeeder')->first();
     if (empty($seedUniquesUse)) {
-      $addresses = DB::table('setting__settings')->where('name', 'isite::addresses')->first();
-      $emails = DB::table('setting__settings')->where('name', 'isite::emails')->first();
-      $phones = DB::table('setting__settings')->where('name', 'isite::phones')->first();
+      $settings = DB::table('setting__settings')->whereIn('name', ['isite::addresses', 'isite::emails', 'isite::phones'])->get();
       $availableLocales = json_decode(setting('core::locales'));
-      foreach ($availableLocales as $locale) {
-        DB::table('setting__setting_translations')->insert(
-          [
-            'setting_id' => $addresses->id,
-            'value' => $addresses->plainValue,
-            'locale' => $locale,
-          ]
-        );
-        DB::table('setting__setting_translations')->insert(
-          [
-            'setting_id' => $emails->id,
-            'value' => $emails->plainValue,
-            'locale' => $locale,
-          ]
-        );
-        DB::table('setting__setting_translations')->insert(
-          [
-            'setting_id' => $phones->id,
-            'value' => $phones->plainValue,
-            'locale' => $locale,
-          ]
-        );
+      foreach ($settings as $setting) {
+        foreach ($availableLocales as $locale) {
+          DB::table('setting__setting_translations')->updateOrInsert(
+            [
+              'setting_id' => $setting->id,
+              'locale' => $locale,
+            ],
+            [
+              'value' => $setting->plainValue,
+            ]
+          );
+        }
       }
       DB::table('isite__seeds')->insert(['name' => 'MoveContactSettingsToSettingsTranslationsTableSeeder']);
     }
