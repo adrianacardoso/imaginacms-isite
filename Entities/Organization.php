@@ -125,6 +125,9 @@ class Organization extends BaseTenant implements TenantWithDatabase
       $tenantRouteAlias = "homepage";
     }
 
+    //Extra validation | In laravel 10 setting can be empty
+    if(is_null($tenantRouteAlias) || empty($tenantRouteAlias)) $tenantRouteAlias = "homepage";
+
     $customDomain = $domains->where("type", "custom")->first()->domain ?? null;
     $defaultDomain = $domains->where("type", "default")->first()->domain ?? $this->slug ?? null;
 
