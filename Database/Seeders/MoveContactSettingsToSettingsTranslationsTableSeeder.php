@@ -15,17 +15,20 @@ class MoveContactSettingsToSettingsTranslationsTableSeeder extends Seeder
     if (empty($seedUniquesUse)) {
       $settings = DB::table('setting__settings')->whereIn('name', ['isite::addresses', 'isite::emails', 'isite::phones'])->get();
       $availableLocales = json_decode(setting('core::locales'));
-      foreach ($settings as $setting) {
-        foreach ($availableLocales as $locale) {
-          DB::table('setting__setting_translations')->updateOrInsert(
-            [
-              'setting_id' => $setting->id,
-              'locale' => $locale,
-            ],
-            [
-              'value' => $setting->plainValue,
-            ]
-          );
+      if (!empty($settings)) {
+        foreach ($settings as $setting) {
+          foreach ($availableLocales as $locale) {
+            DB::table('setting__setting_translations')->updateOrInsert(
+              [
+                'setting_id' => $setting->id,
+                'locale' => $locale,
+              ],
+              [
+                'value' => $setting->plainValue,
+              ]
+            );
+          }
+          DB::table('setting__settings')->where('id', $setting->id)->update(['plainValue' => NULL, 'isTranslatable' => 1]);
         }
       }
       DB::table('isite__seeds')->insert(['name' => 'MoveContactSettingsToSettingsTranslationsTableSeeder']);
