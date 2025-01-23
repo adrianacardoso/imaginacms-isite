@@ -643,6 +643,7 @@ return [
     'groupName' => 'contact',
     'groupTitle' => 'isite::common.settingGroups.contact',
     'quickSetting' => true,
+    'isTranslatable' => true,
     'props' => [
       'label' => 'isite::common.settings.phones',
       'useInput' => true,
@@ -660,6 +661,7 @@ return [
     'groupName' => 'contact',
     'groupTitle' => 'isite::common.settingGroups.contact',
     'quickSetting' => true,
+    'isTranslatable' => true,
     'props' => [
       'label' => 'isite::common.settings.addresses',
       'useInput' => true,
@@ -676,6 +678,7 @@ return [
     'type' => 'select',
     'groupName' => 'contact',
     'groupTitle' => 'isite::common.settingGroups.contact',
+    'isTranslatable' => true,
     'props' => [
       'label' => 'isite::common.settings.emails',
       'useInput' => true,
