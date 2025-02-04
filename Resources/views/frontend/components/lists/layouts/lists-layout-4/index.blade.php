@@ -38,7 +38,7 @@
             <div class="list-extra {{$listExtra}}">
                 @foreach ($items as $key => $item)
                     @if($key > 0)
-                        <div class="list-extra-item oo {{$listExtraItem[$key%count($listExtraItem)]}}">
+                        <div class="list-extra-item {{$listExtraItem[$key%count($listExtraItem)]}}">
                             @include("isite::frontend.partials.item",["itemLayout" => $itemComponentAttributes['layout'],"itemComponentAttributes" => $itemComponentAttributes])
                         </div>
                     @endif
