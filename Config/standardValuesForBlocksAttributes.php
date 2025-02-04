@@ -32,7 +32,7 @@ return [
         ["label" => "Custom", "value" => "text-custom"]
     ],
     "marginB" => [
-        ["label" => "0", "value" => "mb-0"],
+        ["label" => "0px", "value" => "mb-0"],
         ["label" => "4px", "value" => "mb-1"],
         ["label" => "8px", "value" => "mb-2"],
         ["label" => "16px", "value" => "mb-3"],

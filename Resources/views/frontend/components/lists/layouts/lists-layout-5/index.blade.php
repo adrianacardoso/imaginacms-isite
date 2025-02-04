@@ -1,7 +1,7 @@
 <div id="{{ $id }}" class="{{ $class }} lists-layout-5">
     @if($title!=="" || $subtitle!=="")
-    <div class="row">
-            <div class="col-12">
+    <div class="{{$titleRow}} row-title">
+            <div class="{{$titleColumn}}">
                 <div class="title-section {{$textAlign}} @if($textPosition==3) d-flex flex-column @endif ">
                     @if($title!=="")
                         @if($titleUrl)
@@ -29,7 +29,7 @@
         @php($delay = $itemComponentAttributes['itemDelay'])
         @php($cont=0)
     @endif
-    <div class="row">
+    <div class="{{$itemRow}} row-item">
     @foreach ($items as $key => $item)
         @if(!empty($itemComponentAttributes["itemDelay"]))
             @php($itemComponentAttributes["itemDelay"]=$delay+$cont)
